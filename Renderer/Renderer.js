@@ -20,7 +20,7 @@ class Renderer {
 	
 	_renderNote(state) {
 		
-		if(state.noteLength <= 0) return; //TODO should this be a rest?
+		if(state.noteLength <= 0) return; //TODO: should this be a rest?
 		
 		let length = this._key.length;
 		let midNote = Math.floor(length/2);

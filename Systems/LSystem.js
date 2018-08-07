@@ -1,3 +1,5 @@
+import { deprecate } from "util";
+
 //This is the main class for the L system 
 //This should have an:
     //axiom
@@ -19,27 +21,11 @@
 ]
 */
 
-//TODO it may be better to refactor the predicates to look something like 
-/*
-	{
-		PREDECESSOR1: [
-			{
-				successor: "",
-				probability: float
-			},
-			{
-				successor: "",
-				probability: float
-			}
-		]
-		PREDECESSOR2: [
-			{
-				successor: "",
-				probability: float
-			}
-		]	
-	}
-*/
+
+/**
+ * This has been refactored in LSystem_New to allow for a more versitale LSystem def
+ * @deprecated
+ */
 class LSystem {
     
     constructor(axiom, predicates) {
@@ -117,14 +103,14 @@ class LSystem {
 				return;
 			}
 			processedPredicates.push(predicate.predecessor);
-			//TODO for stocastic systems, pick one based on probability
+			//TODO: for stocastic systems, pick one based on probability
 			//NOTE - this probably shouldn't be done here, but rather in the match
 			//So when we are matching, send in all of the predicates for a given predecessor
 			let matches = this._match(predicate.predecessor, predicate.successor, this.currentLexicon);
 			replacements = replacements.concat(matches);
 		}.bind(this)); //NOTE - we use bind here because `this.` scope gets wonky in forEach
 		
-		//TODO how do I handle replacements that apply to the same indecies
+		//TODO: how do I handle replacements that apply to the same indecies
 		//Note - changing the lexicon that we are working on while working on it will screw up our replacements
 		//This means that we have to do all replacements in parallel
 		let newLexiconArray = this.currentLexicon.split('');
@@ -179,7 +165,7 @@ class LSystem {
 			//We know that this will be context sensative
 			contextSensative = true;
 			context = predecessor.split(/[<>]+/);
-			matchPredecessor = context[1]; //This assumes there is a forward and backward context TODO fix this
+			matchPredecessor = context[1]; //This assumes there is a forward and backward context TODO: fix this
 		}
 		
 		//Find all matches for the predecessor in the axiom
@@ -189,7 +175,7 @@ class LSystem {
 			let chosenSuc = this._chooseSuccessor(successorList);
 			let object = {
 				startIndex: sIndex,
-				endIndex: sIndex + 1, //TODO how do this NOTE - this currently assumes only one character is getting replaced. For the scope of this project that is probably fine, but if I want to make this more generic, I should find a better way to do this. 
+				endIndex: sIndex + 1, //TODO: how do this NOTE - this currently assumes only one character is getting replaced. For the scope of this project that is probably fine, but if I want to make this more generic, I should find a better way to do this. 
 				successor: chosenSuc
 			}
 			returnValue.push(object);
@@ -211,8 +197,8 @@ class LSystem {
 			let nextMatch = false;
 			//We care about previous context - check it
 			if(typeof previous != 'undefined' && previous.length != 0) {
-				//TODO fix branching context
-				//TODO abscrat ignore characters
+				//TODO: fix branching context
+				//TODO: abscrat ignore characters
 				let previousIndex = predecessorIndex - 1;
 				let previousChar = matchIn.charAt(previousIndex);
 				while((previousChar == 'F' || previousChar == '+' || previousChar == '-') && previousIndex >= 0) { 
@@ -232,8 +218,8 @@ class LSystem {
 			
 			//We care about next context - check it
 			if(typeof next != 'undefined' && next.length != 0) {
-				//TODO fix branching context
-				//TODO abstract ignore characters
+				//TODO: fix branching context
+				//TODO: abstract ignore characters
 				let nextIndex = predecessorIndex + 1;
 				let nextChar = matchIn.charAt(nextIndex);
 				while((nextChar == 'F' || nextChar == '+' || nextChar == '-') && nextIndex < matchIn.length) {

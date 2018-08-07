@@ -1,3 +1,5 @@
+import { deprecate } from 'util';
+
 const LSystem = require ('./Systems/LSystem_New.js');
 const scribble = require('scribbletune');
 const Renderer = require('./Renderer/Renderer.js');
@@ -6,11 +8,14 @@ const config = require('./properties.json');
 
 /*
 =====================================================
-L System Work  
+L System Work
 =====================================================
 */
 
 
+/*
+TODO: create an elegant logging solution
+*/
 
 let systems = config.systems;
 for(let sysIndex in systems) {
