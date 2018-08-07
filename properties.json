@@ -1,0 +1,182 @@
+{
+	"systems": [
+		{
+			"predicates": {
+				"0<0>0>": [{
+					"successor": "1",
+					"probability": 1
+				}],
+				"0<0>1": [{
+					"successor": "1[-F1F1]",
+					"probability": 1
+				}],
+				"0<1>0": [{
+					"successor": "1",
+					"probability": 1
+				}],
+				"0<1>1": [{
+					"successor": "1",
+					"probability": 1
+				}],
+				"1<0>0": [{
+					"successor": "0",
+					"probability": 1
+				}],
+				"1<0>1": [{
+					"successor": "1F1",
+					"probability": 1
+				}],
+				"1<1>0": [{
+					"successor": "1",
+					"probability": 1
+				}],
+				"1<1>1": [{
+					"successor": "0",
+					"probability": 1
+				}],
+				"+": [{
+					"successor": "-",
+					"probability": 1
+				}],
+				"-": [{
+					"successor": "+",
+					"probability": 1
+				}]
+			},
+			"ignoreContext": [
+				"F", "+", "-", "{", "}"
+			],
+			"axiom": "F1F1F1",
+			"generations": 25,
+			"name": "ComplexTest.mid",
+			"timeScale": "1/16"
+		},
+		{
+			"predicates": {
+				"X": [{
+					"successor": "F[+X][-X]FX",
+					"probability": 1
+				}],
+				"F": [{
+					"successor": "FF",
+					"probability": 1
+				}]
+			},
+			"ignoreContext": [
+			],
+			"axiom": "X",
+			"generations": 1,
+			"name": "Gen1.mid",
+			"timeScale": "1/16"
+		},
+		{
+			"predicates": {
+				"X": [{
+					"successor": "F[+X][-X]FX",
+					"probability": 1
+				}],
+				"F": [{
+					"successor": "FF",
+					"probability": 1
+				}]
+			},
+			"ignoreContext": [
+			],
+			"axiom": "X",
+			"generations": 2,
+			"name": "Gen2.mid",
+			"timeScale": "1/16"
+		},
+		{
+			"predicates": {
+				"X": [{
+					"successor": "F[+X][-X]FX",
+					"probability": 1
+				}],
+				"F": [{
+					"successor": "FF",
+					"probability": 1
+				}]
+			},
+			"ignoreContext": [
+			],
+			"axiom": "X",
+			"generations": 3,
+			"name": "Gen3.mid",
+			"timeScale": "1/4"
+		},
+		{
+			"predicates": {
+				"X": [{
+					"successor": "F[+X][-X]FX",
+					"probability": 1
+				}],
+				"F": [{
+					"successor": "FF",
+					"probability": 1
+				}]
+			},
+			"ignoreContext": [
+			],
+			"axiom": "X",
+			"generations": 4,
+			"name": "Gen4.mid",
+			"timeScale": "1/16"
+		},
+		{
+			"predicates": {
+				"X": [{
+					"successor": "F[+X][-X]FX",
+					"probability": 1
+				}],
+				"F": [{
+					"successor": "FF",
+					"probability": 1
+				}]
+			},
+			"ignoreContext": [
+			],
+			"axiom": "X",
+			"generations": 5,
+			"name": "Gen5.mid",
+			"timeScale": "1/16"
+		},
+		{
+			"predicates": {
+				"X": [{
+					"successor": "F[+X][-X]FX",
+					"probability": 1
+				}],
+				"F": [{
+					"successor": "FF",
+					"probability": 1
+				}]
+			},
+			"ignoreContext": [
+			],
+			"axiom": "X",
+			"generations": 7,
+			"name": "Gen7.mid",
+			"timeScale": "1/16"
+		},
+		{
+			"predicates": {
+				"F": [{
+					"successor": "FF-[-F+F+F]+[+F-F-F]",
+					"probability": 1
+				}]
+			},
+			"ignoreContext": [
+			],
+			"axiom": "[F]",
+			"generations": 3,
+			"name": "Bush.mid",
+			"timeScale": "1/8"
+		}
+	],
+	
+	"midi": {
+		"key": "c major",
+		"sizzle": false
+	}	
+}
